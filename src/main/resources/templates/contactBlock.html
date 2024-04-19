@@ -1,0 +1,8 @@
+<div th:fragment = "contactBlock" class="contactBlock">
+    <div th:text = "${element.name} + ' ' + ${element.lastName}" id = "contactFio" class = "component"></div>
+    <div th:text = "${element.email}" id = "contactEmail" class = "component"></div>
+    <div th:text = "${element.phone}" id = "contactNumber" class = "component"></div>
+    <div class="removeBlock">
+        <button id="remove" class="remove">Удалить</button>
+    </div>
+</div>

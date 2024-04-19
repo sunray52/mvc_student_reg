@@ -1,0 +1,66 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.4'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'checkstyle'
+	id("net.ltgt.errorprone") version '3.1.0'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'mysql:mysql-connector-java:8.0.33'
+
+	checkstyle 'com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1'
+
+	errorprone("com.google.errorprone:error_prone_core:2.26.1")
+	errorprone("jp.skypencil.errorprone.slf4j:errorprone-slf4j:0.1.22")
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+checkstyle {
+	toolVersion = '10.14.0'
+	configFile = file("config/checkstyle/checkstyle.xml")
+	maxWarnings = 0
+	maxErrors = 0
+	ignoreFailures true
+	showViolations false
+}
+
+
+tasks {
+	compileJava {
+		finalizedBy(checkstyleMain)
+	}
+	compileTestJava {
+		finalizedBy(checkstyleTest)
+	}
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

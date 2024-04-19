@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>student_reg</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+    <div id = "glass" class = "glass">
+        <div class="sidebar">
+            <div class="block">
+                <div class="titleTextBlockMain">Список контактов</div>
+            </div>
+            <div class="block">
+                <div class="titleTextBlock">Имя</div>
+                <div class = "contentBlock"><input class = "field" type="text" name="nameValue" id="name"></div>
+            </div>
+            <div class="block">
+                <div class="titleTextBlock">Фамилия</div>
+                <div class = "contentBlock"><input class = "field" type="text" name="lastNameValue" id="lastName"></div>
+            </div>
+            <div class="block">
+                <div class="titleTextBlock">Почта</div>
+                <div class = "contentBlock"><input class = "field" type="text" name="emailValue" id="email"></div>
+            </div>
+            <div class="block">
+                <div class="titleTextBlock">Номер телефона</div>
+                <div class = "contentBlock"><input class = "field" type="text" name="numberValue" id="number"></div>
+            </div>
+            <div class="block">
+                <div class="addBlock">
+                    <div class="submitBlock">
+                        <button id="add" class="add">Добавить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="checkBlock">
+                    <button id="checkList" class="checkList">Посмотреть список контактов</button>
+                </div>
+            </div>
+        </div>
+        <div id="secondBlock" class="secondBlock">
+            <div th:each = "element : ${contact}" th:insert = "contactBlock :: contactBlock (element = element)"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../static/script.js"></script>
+</html>

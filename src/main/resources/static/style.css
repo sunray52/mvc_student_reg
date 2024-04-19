@@ -1,0 +1,236 @@
+*{
+    padding:0;
+    margin: 0;
+    border: 0;
+}
+*,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding: 0; border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1, h2, h3, h4, h5, h6{font-size:inherit;font-weight: 400}
+
+body {--gradient: linear-gradient(to right top,#F6FBA2, #20DED3);
+    --male: rgb(120,160,207);
+    --female:rgb(233, 113, 121);
+}
+
+.container {
+    min-height:100vh;
+    background: var(--gradient);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.glass {
+    background: #ffffff;
+    height: 860px;
+    width: 560px;
+    background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.75));
+    border-radius: 2rem;
+    z-index: 500;
+    backdrop-filter: blur(2rem);
+    transition:all 0.3s ease;
+
+}
+
+.glassActive {
+    width:1120px;
+}
+
+.block {
+    transition: all 0.3s ease;
+    border-radius:25px;
+    height:calc(720px / 6);
+}
+
+.contactBlock {
+    transition: all 0.3s ease;
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom:1px solid #88ce2c;
+    border-top:1px solid #88ce2c;
+    border-radius:25px;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:transparent;
+    color: #88ce2c;
+    align-items: center;
+}
+.contactBlock:hover {
+    transform: translateX(2px);
+}
+.component {
+    margin:20px;
+}
+
+.titleTextBlock, .titleTextBlockMain, .submitBlock, .checkBlock {
+    font-size: 23px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:transparent;
+    color: #88ce2c;
+    text-shadow: 1px 1px 6px #88ce2c;
+    display:flex;
+    justify-content: center;
+}
+
+.titleTextBlockMain {
+    position:relative;
+    top:45px;
+    font-size: 30px;
+}
+
+.submitBlock, .checkBlock {
+    position:relative;
+    top:25px;
+}
+
+.sidebar {
+    transition:all 0.5s ease;
+    background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.2));
+    border:1px solid rgba(202, 219, 179, 0.616);
+    width: 560px;
+    height: 860px;
+    border-radius: 2rem;
+    position:relative;
+    z-index:400;
+}
+
+.sidebar:hover {
+    box-shadow: 2px 2px 10px 2px #F6FBA2;
+}
+
+.field {
+    background-color: rgb(136, 206, 44,0.5);
+    border-radius:15px;
+    width:200px;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left:8px;
+    color: #ffffff;
+    margin-top:40px;
+    transition: all 0.3s ease;
+}
+
+.field:hover {
+    box-shadow: 2px 2px 10px 2px rgba(202, 219, 179, 0.616);
+}
+
+.field::placeholder {
+    color:#ffffff;
+}
+
+.contentBlock {
+    display: flex;
+    justify-content: center;
+
+    transition: all 0.3s ease;
+}
+
+.contentBlock:hover {
+    transform: translateY(-2px);
+}
+
+.add, .checkList, .remove {
+    background-color: #88ce2c9f;
+    color:#ffffff;
+    width:150px;
+    border-radius:25px;
+    height:50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 23px;
+    transition: all 0.3s ease;
+}
+
+.remove{
+    width:100px;
+    font-size: 15px;
+    height: 30px;
+    background-color: rgba(233, 89, 89, 0.9);
+}
+.add:hover, .checkList:hover, .remove:hover  {
+    transform: scale(1.05);
+}
+
+.checkList {
+    width:360px;
+    margin-top:20px;
+}
+
+.secondBlock {
+    position:relative;
+    height:860px;
+    bottom:860px;
+    width:560px;
+    left:0px;
+    border-radius:25px;
+    z-index:300;
+    opacity:0;
+    transition:all 0.3s ease;
+}
+.secondBlockActive {
+    left: 560px;
+    opacity:1;
+}
+
+
+@media screen and (max-width:500px) {
+    .container {
+        height:120%;
+        width:111%;
+    }
+
+    .glass {
+        scale:0.84
+    }
+
+    .secondBlockActive {
+        left:0px;
+        top:60px;
+        opacity:1;
+    }
+
+    .glassActive {
+        width: 860px;
+        height: 1600px;
+    }
+}
