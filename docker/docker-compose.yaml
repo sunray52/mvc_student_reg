@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16.2-alpine3.18
+    environment:
+      POSTGRES_DB: "contacts"
+      POSTGRES_USER: "contacts_user"
+      POSTGRES_PASSWORD: "root"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - contacts-data:/var/lib/postgresql/data
+    ports:
+      - "6432:5432"
+
+volumes:
+  contacts-data:

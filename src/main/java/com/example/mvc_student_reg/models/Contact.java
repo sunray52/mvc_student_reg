@@ -7,30 +7,26 @@
 
 package com.example.mvc_student_reg.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@Entity
+@NoArgsConstructor
+@SuperBuilder
 public class Contact {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    //TODO генерится в дб (столбец в дб)
+    private String name;
 
-    private String name, lastName, email, number;
+    private String lastName;
 
-    public Contact(String name, String lastName, String email, String number) {
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.number = number;
-    }
+    private String email;
 
-    public Contact() {}
+    private String number;
+
 }

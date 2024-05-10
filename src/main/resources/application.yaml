@@ -1,0 +1,8 @@
+spring:
+  liquibase:
+    enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:6432/contacts
+    username: contacts_user
+    password: root
+    driverClassName: org.postgresql.Driver
